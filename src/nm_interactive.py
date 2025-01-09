@@ -37,7 +37,6 @@ path = []
 
 
 def redraw():
-    print("redraw path: ",path)
     canvas.delete(tkinter.ALL)
     canvas.create_image((0,0), anchor=tkinter.NW, image=small_image)
 

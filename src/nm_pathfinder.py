@@ -24,7 +24,6 @@ def find_path (source_point, destination_point, mesh):
         if (within_bounds(item, destination_point)):
             boxes.update({"goal": item})
     path, boxes = BFS(boxes["source"], boxes["goal"], mesh)
-    print(path)
     return path, boxes.keys()
 
 def within_bounds (box, point):
@@ -60,9 +59,9 @@ def BFS (start, goal, mesh):
             print("No path!")
             path = [(start[0],start[2]),(start[0],start[2])]
             break
-        path.append((current[0],current[2]))
+        path.append(((current[0]+current[1])/2,(current[2]+current[3])/2))
         current = came_from[current]
-    path.append((start[0],start[2]))
+    path.append(((start[0]+start[1])/2,(start[2]+start[3])/2))
     path.reverse()
     return path, came_from
             
